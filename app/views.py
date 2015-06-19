@@ -42,6 +42,7 @@ def result(page=0,speciality_post=None,locality_post=None):
 	specDoctorID = Doctor_speciality.query.filter_by(specialityId=specialityId.id).all()
 	doctorList = []
 
+	
 	for loc_doc_id in locationDoctorID :
 		for spec_doc_id in specDoctorID :
 			if (loc_doc_id.doctorId == spec_doc_id.doctorId) :
@@ -62,9 +63,7 @@ def result(page=0,speciality_post=None,locality_post=None):
 				doc["email"] = doctor.email
 				doc["imagePath"] = doctor.imagePath
 				
-				for doc_loc in doctor_locationList:
-					if(docId == doc_loc.doctorId and locationId.id == doc_loc.locationId):
-						doc["address"] = doc_loc.address
+				doc["address"] = Doctor_location.query.filter(Doctor_location.doctorId==docId)[0].address
 				resultList.append(doc)
 				doc={}
 	result = []
@@ -121,13 +120,8 @@ def updateData(docID):
 			specialityList.append(speciality)
 		doc["location"] = locationList
 		doc["speciality"] = specialityList
-		addressList = []
 		users = Doctor_location.query.all()
-		for u in users:
-			for loc in locationIdList :
-				if (u.doctorId == doctor.id and u.locationId == loc):
-					addressList.append(u.address)
-		doc["address"] = addressList
+		doc["address"] = Doctor_location.query.filter(Doctor_location.doctorId==docId)[0].address
 
 	return render_template("updateData.html",title='Admin',form=form, doc=doc)
 
