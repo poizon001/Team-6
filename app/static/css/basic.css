@@ -1,0 +1,14 @@
+.max_height {
+  max-height: 5px;
+}
+.blue-color{
+  background: #B2F0FF;
+}
+.white-color{
+  background:#FFFFFF;
+}
+.search_result{
+  background:#B2F0FF;
+  max-height: 10px;
+  min-height: 10px;
+}

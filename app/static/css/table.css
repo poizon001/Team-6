@@ -1,0 +1,13 @@
+th,td {
+    color: lightblue;
+    font-size: 14px;
+    font-weight: 400;
+    padding-top: 22px;
+    text-transform: uppercase;
+    border: 1px solid #cecfd5;
+    padding: 10px 15px;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 4px;
+}

@@ -1,0 +1,14 @@
+  #main{
+    background-color: grey ;
+    color: black;
+    text-align: center;
+    width: 70%;
+    margin-left: 20%;
+  }
+  #centre{
+    font-size: 25px;
+  }
+  #details{
+    margin-top: 5%;
+    font-size: 20px;
+  }

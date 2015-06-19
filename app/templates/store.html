@@ -1,0 +1,41 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+{% block content %}
+
+<link type="text/css" rel="stylesheet" href="{{ url_for('static',filename='css/form.css')}}" />
+
+<div id="main">
+  <div id="centre">Admin Panel</div>
+  <div id="details"> Enter Doctor Details:</div>
+  <form action="/store" method="post" name="form">
+    <p>
+      Name:{{ form.name(size=80) }}<br>
+    </p>
+
+    <p>
+      Location:{{ form.location(size=80) }}<br>
+    </p>
+
+    <p>
+      Degree:{{ form.degree(size=80) }}<br>
+    </p>
+    <p>
+      Speciality:{{ form.speciality(size=80) }}<br>
+    </p>
+    <p>
+      Experience:{{ form.experience(size=80) }}<br>
+    </p>
+    <p>
+      Address:{{ form.address(size=80) }}<br>
+    </p>
+    <p>
+      Email:{{ form.email(size=80) }}<br>
+    </p>
+    <p>
+      Image Name:{{ form.imagePath(size=80) }}<br>
+    </p>
+    <b>Location,Speciality and Address can be comma separated</b>
+    <p><input type="submit" value="form"></p>
+  </form>
+</div>  
+{% endblock %}

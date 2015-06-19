@@ -1,0 +1,52 @@
+<!-- extend from base layout -->
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Degree</th>
+        <th>Experience</th>
+        <th>email</th>
+        <th>delete</th>
+        <th>update</th>
+    </tr>
+    {% for doctor in doctors %}
+        <tr>
+            <td>{{ doctor.name }}</td>
+            <td>{{ doctor.degree }}</td>
+            <td>{{ doctor.experience}} </td>
+            <td>{{ doctor.email }}</td>
+            <td>
+              <form action="/deleteDoctor/{{doctor.id}}" method="POST"> 
+                <button name="delete" type="submit" id="deleteDoc" value="" > Delete </button>
+              </form>
+            </td>
+            <td>
+              <form action="/getupdate/{{doctor.id}}" method="POST">
+                <button name="update" type="submit" id="updateDoc" value="" > Edit </button>
+              </form>
+            </td>
+            <td>
+              <form action="/getuser/{{doctor.id}}" method="POST">
+                <button name="getinfo" type="submit" id="getInfo" value="" > Info </button>
+              </form>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+<br>
+<br>
+  <div class='container'>
+  <div class='jumbotron row'>
+    <form action="/insert" method="POST">
+      <label>
+        Click to create:
+      </label>
+      <input type='submit' alt="Submit" name='Delete'>
+    </form>
+  </div>
+  </div>
+</div>
+
+{% endblock %}
